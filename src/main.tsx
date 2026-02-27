@@ -1,0 +1,45 @@
+// Import the generated route tree
+import { routeTree } from './routeTree.gen';
+
+import '@mantine/core/styles.css';
+
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider, createRouter } from '@tanstack/react-router';
+import { MantineProvider } from '@mantine/core';
+import { emotionTransform, MantineEmotionProvider } from '@mantine/emotion';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
+// Create a new router instance
+const router = createRouter({
+  routeTree,
+  context: {
+    queryClient,
+  },
+});
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
+}
+
+// Render the app
+const rootElement = document.getElementById('root')!;
+if (!rootElement.innerHTML) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <MantineProvider stylesTransform={emotionTransform}>
+          <MantineEmotionProvider>
+            <RouterProvider router={router} />
+          </MantineEmotionProvider>
+        </MantineProvider>
+      </QueryClientProvider>
+    </StrictMode>,
+  );
+}
