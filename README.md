@@ -5,15 +5,15 @@ React 19 + Vite 7 기반의 풀스택형 SPA 보일러플레이트입니다.
 
 ## 기술 스택
 
-| 구분 | 기술 |
-|------|------|
-| **프레임워크** | React 19 |
-| **빌드** | Vite 7 |
-| **라우팅** | TanStack Router (파일 기반, 타입 세이프) |
-| **데이터 페칭** | TanStack React Query |
-| **UI** | Mantine (Emotion 기반) |
-| **컴파일러** | React Compiler (babel-plugin-react-compiler) |
-| **언어** | TypeScript |
+| 구분            | 기술                                         |
+| --------------- | -------------------------------------------- |
+| **프레임워크**  | React 19                                     |
+| **빌드**        | Vite 7                                       |
+| **라우팅**      | TanStack Router (파일 기반, 타입 세이프)     |
+| **데이터 페칭** | TanStack React Query                         |
+| **UI**          | Mantine (Emotion 기반)                       |
+| **컴파일러**    | React Compiler (babel-plugin-react-compiler) |
+| **언어**        | TypeScript                                   |
 
 ## 요구 사항
 
@@ -25,7 +25,8 @@ React 19 + Vite 7 기반의 풀스택형 SPA 보일러플레이트입니다.
 ### 설치
 
 ```bash
-pnpm install
+git clone https://github.com/msm0748/react-base-template.git .
+rm -rf .git
 ```
 
 ### 개발 서버
@@ -69,15 +70,3 @@ src/
 
 - **경로 별칭**: `@/` → `src/` (import 시 `@/routes/...` 등 사용 가능)
 - **라우팅**: `src/routes/` 아래에 파일을 추가하면 자동으로 라우트가 등록됩니다.
-
-## 주요 기능
-
-- **타입 세이프 라우팅**: TanStack Router로 경로·파라미터 타입 추론
-- **코드 스플리팅**: 라우트 단위 자동 코드 스플리팅 (`autoCodeSplitting`)
-- **React Query**: 라우트 컨텍스트에 `queryClient` 주입, 데이터 캐싱·동기화
-- **Mantine + Emotion**: 테마·컴포넌트와 Emotion 스타일 통합
-- **React Compiler**: 별도 `useMemo`/`useCallback` 없이 렌더 최적화
-
-## 라이선스
-
-Private
